@@ -1,0 +1,17 @@
+# grafana-helmrelease.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: grafana
+      version: "latest"
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+  values:
+    # Add any Grafana specific values here
